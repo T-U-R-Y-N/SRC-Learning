@@ -349,9 +349,22 @@ const PROCEDURE_FLASHCARDS = [
       '3. SAFETY / ostrzeżenie — DSC: SAFETY; fonia: SECURITE.',
       '4. ROUTINE / zwykła łączność — DSC: ROUTINE; fonia: zwykłe wywołanie.',
       'Zasada pamięciowa: DISTRESS/URGENCY/SAFETY/ROUTINE to priorytety/kategorie DSC; MAYDAY/PAN PAN/SECURITE to sygnały mówione.',
-      'W wywołaniu/zawiadomieniu głosowym przed właściwym komunikatem: sygnał, adresata i własną stację podajesz po 3 razy; po przejściu do właściwego komunikatu MAYDAY występuje zwykle pojedynczo.'
+      'W egzaminowym wariancie fonii przed właściwym komunikatem: sygnał, adresata i własną stację podajesz po 3 razy. Dla MAYDAY po tej zapowiedzi właściwy komunikat zaczyna się już zwykle pojedynczym MAYDAY.'
     ],
     tip:'Najczęstszy błąd: mówić „DSC MAYDAY”. Precyzyjniej: DSC Distress Alert, potem fonia MAYDAY na kanale 16.'
+  },
+  {
+    id:'voice_sequence_audit',
+    front:'Kontrola sekwencji fonicznej: co razy 3, co raz?',
+    back:[
+      'MAYDAY własny: MAYDAY x3, ALL STATIONS x3, THIS IS własna stacja x3; właściwy komunikat zaczyna się od pojedynczego MAYDAY.',
+      'MAYDAY RELAY: MAYDAY RELAY x3, ALL STATIONS albo konkretna stacja x3, THIS IS własna stacja x3.',
+      'PAN PAN: PAN PAN x3, ALL STATIONS albo konkretna stacja x3, THIS IS własna stacja x3.',
+      'SECURITE: SECURITE x3, ALL STATIONS albo konkretna stacja x3, THIS IS własna stacja x3.',
+      'RECEIVED MAYDAY: MAYDAY x1, stacja zagrożona x3, THIS IS własna stacja x3, RECEIVED MAYDAY.',
+      'SEELONCE / PRUDONCE / FEENEE: MAYDAY x1, ALL STATIONS x3, THIS IS stacja kierująca x3.'
+    ],
+    tip:'Ta fiszka jest audytem całych procedur — użyj jej jako szybkiej kontroli przed egzaminem.'
   },
   {
     id:'mayday_full',
@@ -360,6 +373,7 @@ const PROCEDURE_FLASHCARDS = [
       'A. DSC / zawiadomienie: kanał 70, DISTRESS, wybierz rodzaj zagrożenia, sprawdź pozycję i czas pozycji, przytrzymaj DISTRESS.',
       'DSC Distress Alert niesie identyfikację MMSI, pozycję, czas pozycji, rodzaj zagrożenia i tryb dalszej łączności.',
       'B. Fonia / wywołanie na kanale 16: MAYDAY, MAYDAY, MAYDAY.',
+      'ALL STATIONS, ALL STATIONS, ALL STATIONS — adresat wywołania 3 razy.',
       'THIS IS [nazwa jednostki] [nazwa jednostki] [nazwa jednostki].',
       'CALL SIGN [znak wywoławczy], MMSI [numer MMSI].',
       'C. Właściwy komunikat: MAYDAY, THIS IS [nazwa / call sign / MMSI].',
@@ -369,7 +383,7 @@ const PROCEDURE_FLASHCARDS = [
       'PERSONS ON BOARD [liczba osób].',
       'OTHER INFORMATION [np. abandoning to liferaft, injuries, vessel description]. OVER.'
     ],
-    tip:'MMSI jest już w DSC, ale w praktyce egzaminacyjnej warto powtórzyć MMSI, call sign/nazwę, pozycję i zagrożenie głosem.'
+    tip:'Wariant pod praktykę: w zapowiedzi głosowej dodaj adresata ALL STATIONS x3. MMSI jest już w DSC, ale warto powtórzyć MMSI, call sign/nazwę, pozycję i zagrożenie głosem.'
   },
   {
     id:'mayday_voice_only',
@@ -377,6 +391,7 @@ const PROCEDURE_FLASHCARDS = [
     back:[
       'Ustaw kanał 16 i wysoką moc, jeśli sytuacja tego wymaga.',
       'MAYDAY, MAYDAY, MAYDAY.',
+      'ALL STATIONS, ALL STATIONS, ALL STATIONS — adresat wywołania 3 razy.',
       'THIS IS [nazwa jednostki] — 3 razy.',
       'CALL SIGN [znak wywoławczy], MMSI [numer MMSI].',
       'MAYDAY [nazwa jednostki].',
@@ -386,7 +401,24 @@ const PROCEDURE_FLASHCARDS = [
       'PERSONS ON BOARD [liczba osób].',
       'OTHER INFORMATION. OVER.'
     ],
-    tip:'To najbezpieczniejszy schemat do nauczenia na pamięć, nawet jeśli realnie wcześniej poszedł DSC alert.'
+    tip:'To schemat pod egzamin praktyczny: 3x MAYDAY, 3x ALL STATIONS, 3x własna stacja, potem właściwy komunikat od pojedynczego MAYDAY.'
+  },
+  {
+    id:'false_distress_cancel',
+    front:'Odwołanie fałszywego MAYDAY / DSC DISTRESS',
+    back:[
+      'A. Jeżeli przypadkowo wysłałeś DSC DISTRESS: natychmiast zatrzymaj dalsze nadawanie alarmu w urządzeniu, jeśli radio to umożliwia.',
+      'B. Przejdź na kanał 16 i nadaj odwołanie do wszystkich stacji.',
+      'ALL STATIONS, ALL STATIONS, ALL STATIONS.',
+      'THIS IS [nazwa jednostki] [nazwa jednostki] [nazwa jednostki].',
+      'CALL SIGN [znak wywoławczy], MMSI [numer MMSI].',
+      'POSITION [pozycja jednostki].',
+      'CANCEL MY DISTRESS ALERT OF [czas UTC / data, jeśli znana].',
+      'THE DISTRESS ALERT WAS SENT IN ERROR.',
+      'MASTER / SKIPPER [nazwisko lub nazwa jednostki], OUT.',
+      'D. Jeżeli alarm był z EPIRB: wyłącz EPIRB i powiadom najbliższe RCC / stację nadbrzeżną.'
+    ],
+    tip:'SRM v10: odwołanie fałszywego DSC nadajesz na kanale 16, kierujesz do wszystkich stacji i podajesz m.in. pozycję, rodzaj odwoływanego alarmowania oraz czas nadania/odwołania.'
   },
   {
     id:'mayday_relay',
@@ -440,7 +472,6 @@ const PROCEDURE_FLASHCARDS = [
       'Fonia: PAN PAN, PAN PAN, PAN PAN.',
       'ALL STATIONS, ALL STATIONS, ALL STATIONS / [wywoływana stacja] — adresat wywołania 3 razy.',
       'Jeżeli wywołujesz konkretną stację, jej nazwę/call sign podajesz 3 razy zamiast ALL STATIONS.',
-      'Jeżeli wywołujesz konkretną stację, jej nazwę/call sign podajesz 3 razy zamiast ALL STATIONS.',
       'THIS IS [nazwa jednostki] — zwykle 3 razy.',
       'POSITION [jeśli istotna].',
       'NATURE OF URGENCY [np. medical advice needed, engine failure, man overboard].',
@@ -455,6 +486,7 @@ const PROCEDURE_FLASHCARDS = [
       'DSC: kanał 70, kategoria SAFETY, zapowiedź komunikatu bezpieczeństwa.',
       'Fonia: SECURITE, SECURITE, SECURITE.',
       'ALL STATIONS, ALL STATIONS, ALL STATIONS / [wywoływana stacja] — adresat wywołania 3 razy.',
+      'Jeżeli wywołujesz konkretną stację, jej nazwę/call sign podajesz 3 razy zamiast ALL STATIONS.',
       'THIS IS [nazwa jednostki/stacji] — 3 razy.',
       'Treść: navigational warning / meteorological warning / hazard to navigation.',
       'Możesz zapowiedzieć przejście na kanał roboczy, jeśli taki wskazano.',
@@ -480,7 +512,8 @@ const PROCEDURE_FLASHCARDS = [
     front:'EPIRB — uruchomienie, test, fałszywy alarm',
     back:[
       'Alarmowo: zabierz radiopławę, uruchom zgodnie z instrukcją, przywiąż do tratwy i zapewnij widok nieba.',
-      'Test: użyj wyłącznie pozycji/przycisku TEST.',
+      'Test okresowy: raz w miesiącu, zgodnie z instrukcją na obudowie / instrukcją producenta.',
+      'Test praktyczny: użyj wyłącznie pozycji/przycisku TEST.',
       'Nie przełączaj w tryb ON / ACTIVATE podczas testu.',
       'Obserwuj sygnały zgodnie z opisem na obudowie.',
       'Fałszywe uruchomienie: wyłącz EPIRB i natychmiast powiadom RCC.'
@@ -491,7 +524,9 @@ const PROCEDURE_FLASHCARDS = [
     id:'sart',
     front:'SART — uruchomienie i zasada działania',
     back:[
-      'Zabierz SART na tratwę i przywiąż go linką.',
+      'Test okresowy: zgodnie z instrukcją producenta / planem obsługi; w praktyce szkolnej zapamiętaj: test wykonujesz tylko w trybie TEST i nie zostawiasz urządzenia włączonego.',
+      'Test egzaminacyjny SRM: wciśnij na 5 sekund przycisk uruchomienia, obserwuj zachowanie zgodne z opisem na transponderze, wyłącz transponder.',
+      'Alarmowo: zabierz SART na tratwę i przywiąż go linką.',
       'Uruchom zgodnie z instrukcją.',
       'Umieść możliwie wysoko.',
       'SART odpowiada na radary pasma X.',
